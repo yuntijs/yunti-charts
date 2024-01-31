@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_yuntijs_charts=self.webpackChunk_yuntijs_charts||[]).push([[1009],{39096:function(i,n,e){e.r(n),e.d(n,{default:function(){return u}});var t=e(53530),r=e(50959),s=function(){var o=(0,t.UO)(),d=o.id,m=(0,t.WF)(),c=m.demos,f=c[d]||{},a=f.component;return a&&(0,r.createElement)(a)},u=s}}]);
