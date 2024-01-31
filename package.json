@@ -1,0 +1,147 @@
+{
+  "name": "@yuntijs/charts",
+  "version": "0.1.0.beta.0",
+  "description": "☁️ Yunti Charts is an open-source Charts component library for building web apps",
+  "keywords": [
+    "yuntijs",
+    "react",
+    "cloud-native",
+    "components",
+    "charts"
+  ],
+  "homepage": "https://github.com/yuntijs/yunti-charts#readme",
+  "bugs": {
+    "url": "https://github.com/yuntijs/yunti-charts/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuntijs/yunti-charts.git"
+  },
+  "license": "MIT",
+  "author": "Jandiasnow <88074479@qq.com>",
+  "main": "es/index.js",
+  "module": "es/index.js",
+  "types": "es/index.d.ts",
+  "files": [
+    "es",
+    "umd"
+  ],
+  "scripts": {
+    "build": "father build",
+    "ci": "npm run lint && npm run type-check",
+    "clean": "rm -r es umd lib dist coverage .dumi/tmp .eslintcache node_modules/.cache",
+    "dev": "dumi dev",
+    "dev:father": "father dev",
+    "docs:build": "dumi build",
+    "docs:build-analyze": "ANALYZE=1 dumi build",
+    "docs:dev": "dumi dev",
+    "docs:preview": "dumi preview --port 9000",
+    "doctor": "father doctor",
+    "lint": "npm run lint:es && npm run lint:style && npm run lint:md",
+    "lint-fix": "npm run lint-fix:es && npm run lint-fix:style",
+    "lint-fix:es": "eslint --ext .jsx,.js,.tsx,.ts src --fix",
+    "lint-fix:style": "stylelint \"{src,tests}/**/*.{css,less,js,jsx,ts,tsx}\" --fix",
+    "lint:es": "eslint --ext .jsx,.js,.tsx,.ts src",
+    "lint:md": "remark . --quiet --output",
+    "lint:style": "stylelint \"{src,tests}/**/*.{css,less,js,jsx,ts,tsx}\"",
+    "prepare": "husky install",
+    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
+    "pull": "git pull",
+    "release": "semantic-release",
+    "setup": "dumi setup",
+    "start": "npm run docs:dev",
+    "test": "vitest --passWithNoTests",
+    "test:coverage": "vitest run --coverage  --passWithNoTests",
+    "test:update": "vitest -u",
+    "type-check": "tsc -p tsconfig-check.json"
+  },
+  "lint-staged": {
+    "*.md": [
+      "remark --quiet --output --",
+      "prettier --write --no-error-on-unmatched-pattern"
+    ],
+    "*.json": [
+      "prettier --write --no-error-on-unmatched-pattern"
+    ],
+    "*.{css,less}": [
+      "stylelint --fix --allow-empty-input",
+      "prettier --write"
+    ],
+    "*.{js,jsx}": [
+      "stylelint --fix --allow-empty-input",
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{ts,tsx}": [
+      "stylelint --fix",
+      "eslint --fix",
+      "prettier --parser=typescript --write"
+    ]
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5",
+    "@babel/runtime": "^7",
+    "lodash-es": "^4"
+  },
+  "devDependencies": {
+    "@antv/g2": "^5.1.14",
+    "@ant-design/icons": "^5",
+    "@lobehub/ui": "^1",
+    "leva": "^0",
+    "lucide-react": "latest",
+    "react-layout-kit": "^1",
+    "@testing-library/react": "^14",
+    "@types/lodash-es": "^4",
+    "@types/react": "18.2.40",
+    "@types/react-dom": "^18",
+    "@vitest/coverage-v8": "latest",
+    "@yuntijs/lint": "^1.4.0",
+    "antd": "^5.12.5",
+    "antd-style": "^3",
+    "babel-plugin-antd-style": "latest",
+    "commitlint": "^18",
+    "dumi": "^2",
+    "dumi-theme-lobehub": "^1.7.6",
+    "eslint": "^8.56.0",
+    "father": "^4.3.8",
+    "husky": "^8",
+    "jest": "^27",
+    "jsdom": "^22",
+    "lint-staged": "^15",
+    "prettier": "^3",
+    "react": "^18",
+    "react-dom": "^18",
+    "remark": "^14",
+    "remark-cli": "^11",
+    "semantic-release": "^21",
+    "stylelint": "^15",
+    "typescript": "^5",
+    "vitest": "latest"
+  },
+  "peerDependencies": {
+    "@antv/g2": ">=5",
+    "antd": ">=5",
+    "antd-style": ">=3",
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "packageManager": "pnpm@8.12.1",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "yunti": {
+    "umd": {
+      "library": "YuntiCharts",
+      "entry": [
+        "/umd/index.min.js"
+      ],
+      "externals": {
+        "@antv/g2": ">=5",
+        "antd": ">=5",
+        "antd-style": ">=3",
+        "react": ">=18"
+      }
+    }
+  }
+}
